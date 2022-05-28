@@ -1,0 +1,20 @@
+body {
+  @extend %exo2-400;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  @extend %montserrat-400;
+}
+
+section {
+  max-width: 1920px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
