@@ -1,11 +1,37 @@
-%exo2-400{
-  font-family: 'Exo2', sans-serif;
+%exo2-400 {
+  font-family: "Exo2", sans-serif;
   font-weight: 400;
 }
 
-%montserrat-400{
-  font-family: 'Montserrat', sans-serif;
+%montserrat-400 {
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
+}
+
+%btn {
+  background: linear-gradient(
+    0deg,
+    rgba(229, 143, 101, 1) 0%,
+    rgba(208, 83, 83, 1) 35%,
+    rgba(208, 83, 83, 1) 50%,
+    rgba(208, 83, 83, 1) 65%,
+    rgba(229, 143, 101, 1) 100%
+  );
+  display: inline-block;
+  text-transform: uppercase;
+  border-radius: 100px;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    box-shadow: 0 0 15px #e58f65;
+  }
+}
+
+%circle {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background-color: #f9e784;
+  box-shadow: 0 0 0 5px rgba(241, 232, 184, 0.377);
 }
 
 $white: #ffffff;
@@ -15,4 +41,3 @@ $accent: #f9e784;
 $accent-light: #f1e8b8;
 $red: #d05353;
 $red-light: #e58f65;
-

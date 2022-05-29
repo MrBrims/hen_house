@@ -1,5 +1,9 @@
 body {
   @extend %exo2-400;
+  color: $black;
+  font-size: 18px;
+  line-height: 1.2;
+  background-color: $white;
 }
 
 h1,
@@ -13,8 +17,20 @@ section {
   max-width: 1920px;
 }
 
+a {
+  color: $white;
+  transition: all .5s ease-in-out;
+  &:hover {
+    color: $accent-light;
+  }
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
+}
+
+.title {
+  font-size: 45px;
 }

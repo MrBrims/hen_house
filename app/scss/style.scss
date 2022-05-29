@@ -1,17 +1,280 @@
-@import 'vars';
-@import 'fonts';
-@import 'reset';
-@import 'libs';
-@import 'animate';
-@import 'global';
+@import "vars";
+@import "fonts";
+@import "reset";
+@import "libs";
+@import "animate";
+@import "global";
 
+.header {
+  background-image: url(../images/header-bg.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  &__top {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  &__top-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    color: $white;
+  }
+  &__top-description {
+    margin-right: 70px;
+    margin-left: 40px;
+  }
+  &__top-location {
+    padding-left: 40px;
+    position: relative;
+    span {
+      color: $accent;
+      display: block;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 30px;
+      height: 30px;
+      background-image: url(../images/map-pin.svg);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 100%;
+    }
+  }
+  &__top-contact {
+    margin-left: auto;
+    margin-right: 70px;
+  }
+  &__top-mail {
+    margin-bottom: 10px;
+    display: block;
+    text-align: center;
+  }
+  &__top-messengers {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    a + a {
+      margin-left: 5px;
+    }
+  }
+  &__top-viber,
+  &__top-telegram,
+  &__top-whatsapp,
+  &__top-facebook {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      transform: translateY(5px);
+    }
+  }
+  &__top-viber {
+    background-color: #7460f3;
+  }
+  &__top-telegram {
+    background-color: #01a2f3;
+  }
+  &__top-whatsapp {
+    background-color: #36b913;
+  }
+  &__top-facebook {
+    background-color: #0082fe;
+  }
+  &__top-phone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &__top-schedule {
+    font-size: 16px;
+    margin-bottom: 7px;
+    position: relative;
+    padding-left: 15px;
+    margin-right: 15px;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: $accent;
+      box-shadow: 0 0 7px $accent-light;
+    }
+  }
+  &__top-number {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  &__top-btn {
+    font-size: 16px;
+    border-bottom: 1px dashed $accent-light;
+    padding-bottom: 5px;
+  }
+  &__middle {
+    min-height: calc(100vh - 196px);
+    display: flex;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  &__middle-wrapper {
+    margin: auto;
+    max-width: 1400px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__title {
+    font-size: 60px;
+    color: $white;
+    margin-bottom: 60px;
+    span {
+      height: 50px;
+      width: 3px;
+      background-color: $accent;
+      display: inline-block;
+      margin: 0 10px;
+      position: relative;
+      top: 7px;
+    }
+  }
+  &__middle-inner {
+    display: flex;
+    align-items: center;
+  }
+  &__btn {
+    @extend %btn;
+    padding: 30px 50px;
+    margin-right: 50px;
+  }
+  &__btn-text {
+    width: 430px;
+    font-size: 16px;
+    line-height: 1.3;
+    color: $white;
+    position: relative;
+    padding-left: 50px;
+    span {
+      display: block;
+      font-weight: 700;
+    }
+    &::before {
+      @extend %circle;
+      left: 10px;
+      top: 17px;
+      width: 10px;
+      height: 10px;
+    }
+    &::after {
+      content: "";
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      left: 5px;
+      top: 22px;
+      background-image: url(../images/finger.svg);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 100%;
+    }
+  }
+  &__middle-bages {
+    width: 250px;
+    color: $white;
+  }
+  &__middle-bage {
+    background-color: rgba(25, 25, 25, 0.9);
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 10px;
+    line-height: 1.3;
+    position: relative;
+    &::before {
+      @extend %circle;
+      width: 15px;
+      height: 15px;
+      top: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    span {
+      display: block;
+      font-weight: 700;
+    }
+  }
+  &__middle-bage + .header__middle-bage {
+    margin-top: 40px;
+  }
+  &__bottom {
+    padding-bottom: 100px;
+  }
+  &__bottom-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    color: $white;
+  }
+  &__bottom-bage {
+    padding-left: 70px;
+    position: relative;
+    line-height: 1.4;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 1px solid $accent-light;
+      background-image: url(../images/check.svg);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 50%;
+    }
+    span {
+      color: $accent-light;
+    }
+  }
+}
 
+.logo {
+  flex-basis: 135px;
+}
 
+.menu {
+  &__items {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 0;
+  }
+  &__link {
+    text-transform: uppercase;
+    font-size: 19px;
+    padding: 10px 15px;
+  }
+}
 
-
-
-
-
-
-
-@import 'media';
+@import "media";

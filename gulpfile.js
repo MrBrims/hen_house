@@ -65,7 +65,7 @@ function cleanDist() {
 
 function watching() {
   watch(['app/scss/**/*.scss'], styles);
-  watch(['app/html/**/*.html'], htmlInclude);
+  watch(['app/html_include/**/*.html'], htmlInclude);
   watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
   watch(['app/**/*.html']).on('change', browserSync.reload);
 }
