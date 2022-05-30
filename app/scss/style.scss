@@ -10,6 +10,7 @@
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+  margin-bottom: 130px;
   &__top {
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   }
@@ -220,9 +221,6 @@
   &__middle-bage + .header__middle-bage {
     margin-top: 40px;
   }
-  &__bottom {
-    padding-bottom: 100px;
-  }
   &__bottom-wrapper {
     max-width: 1400px;
     margin: 0 auto;
@@ -252,6 +250,191 @@
     }
     span {
       color: $accent-light;
+    }
+  }
+}
+
+.quiz {
+  background-color: $main;
+  &__wrapper {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 15px;
+  }
+  &__title {
+    color: $white;
+  }
+  &__inner {
+    display: flex;
+    align-items: center;
+    background-color: $white;
+    padding: 60px;
+    border-radius: 50px;
+  }
+  &__boss {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 470px;
+    height: 850px;
+    flex-shrink: 0;
+    background-image: url(../images/quiz-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    margin-right: 50px;
+    padding: 50px;
+    text-align: center;
+    color: $white;
+    border-radius: 25px;
+  }
+  &__boss-title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  &__boss-subtitle {
+    font-size: 23px;
+    margin-bottom: auto;
+  }
+  &__boss-text {
+    font-size: 20px;
+    margin-bottom: 20px;
+    span {
+      font-weight: 700;
+    }
+  }
+  &__boss-name {
+    font-size: 30px;
+    margin-bottom: 5px;
+  }
+  &__steps {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 70px;
+    max-width: fit-content;
+  }
+  &__progress,
+  &__success {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 2px;
+  }
+  &__progress {
+    right: 0;
+    background-color: #ccc;
+    z-index: 5;
+  }
+  &__success {
+    background-color: $red;
+    z-index: 6;
+    transition: all 0.3s ease-in-out;
+  }
+  &__step {
+    width: 50px;
+    height: 50px;
+    border: 3px solid $red;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    z-index: 10;
+    transition: all 0.3s ease-in-out;
+    &.--active-step {
+      background-color: $red;
+      color: $white;
+      transition: all 0.6s ease-in-out;
+    }
+    & + .quiz__step {
+      margin-left: 100px;
+    }
+  }
+  &__item {
+    display: none;
+    top: 0;
+    left: 0;
+    &.--active {
+      display: block;
+    }
+  }
+  &__item-title {
+    font-size: 45px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  &__text {
+    font-size: 20px;
+    margin-bottom: 70px;
+    text-align: center;
+    color: #999;
+  }
+  &__input-items {
+    margin-bottom: 50px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  &__label {
+    user-select: none;
+    position: relative;
+    display: block;
+    padding: 30px 30px 30px 75px;
+    background-color: #fafafa;
+    cursor: pointer;
+    border-radius: 50px;
+    color: #b4b4b4;
+  }
+  &__checkbox {
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    position: absolute;
+  }
+  &__checkbox-style {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+  }
+  &__checkbox-border {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 50px;
+  }
+  &__checkbox:checked ~ .quiz__checkbox-style {
+    background: $red;
+    svg path:nth-child(2) {
+      fill: $white;
+    }
+  }
+  &__checkbox:checked ~ .quiz__checkbox-border {
+    border: 1px solid $red-light;
+  }
+  &__checkbox:checked ~ span {
+    color: $black;
+  }
+  &__btn,
+  &__btn-submit {
+    @extend %btn;
+    padding: 20px 40px;
+    position: relative;
+    &:nth-child(1) {
+      margin-right: 20px;
     }
   }
 }
