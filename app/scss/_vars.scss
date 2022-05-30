@@ -21,6 +21,9 @@
   text-transform: uppercase;
   border-radius: 100px;
   transition: all 0.3s ease-in-out;
+  color: #fff;
+  cursor: pointer;
+  border: none;
   &:hover {
     box-shadow: 0 0 15px #e58f65;
   }
