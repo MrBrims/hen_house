@@ -254,6 +254,27 @@
   }
 }
 
+.logo {
+  flex-basis: 135px;
+}
+
+.menu {
+  &__items {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 0;
+  }
+  &__link {
+    text-transform: uppercase;
+    font-size: 19px;
+    padding: 10px 15px;
+  }
+}
+
 .quiz {
   background-color: $main;
   &__wrapper {
@@ -263,6 +284,7 @@
   }
   &__title {
     color: $white;
+    margin-bottom: 80px;
   }
   &__inner {
     display: flex;
@@ -439,24 +461,174 @@
   }
 }
 
-.logo {
-  flex-basis: 135px;
-}
-
-.menu {
+.portfolio {
+  &__title,
+  &__subtitle {
+    color: $white;
+  }
   &__items {
-    max-width: 1400px;
-    width: 100%;
-    margin: 0 auto;
+    display: grid;
+    gap: 50px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  &__item {
+    border-radius: 35px;
+    overflow: hidden;
+    position: relative;
+    height: 560px;
+    display: flex;
+    flex-direction: column;
+    color: $white;
+    padding: 30px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+  &__item-top {
+    position: relative;
+    z-index: 10;
+    margin-bottom: auto;
+  }
+  &__item-list {
+    display: block;
+    margin-left: auto;
+    max-width: fit-content;
+    padding: 20px;
+    background-color: rgba(25,25,25,.8);
+    border-radius: 20px;
+    box-shadow: 0 0 5px $main;
+  }
+  &__item-element {
+    font-size: 20px;
+    padding-left: 25px;
+    position: relative;
+    &::before {
+      @extend %circle;
+      width: 10px;
+      height: 10px;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    & + .portfolio__item-element {
+      margin-top: 10px;
+    }
+  }
+  &__item-bottom {
+    position: relative;
+    z-index: 10;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 25px 0;
   }
-  &__link {
+  &__item-title {
+    font-size: 25px;
+    margin-right: 20px;
+    padding: 20px;
+    background-color: rgba(25,25,25,.8);
+    border-radius: 20px;
+    box-shadow: 0 0 5px $main;
+  }
+  &__item-btn {
+    @extend %btn;
+    padding: 10px 25px;
+    flex-shrink: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.service {
+  background-image: url(../images/service-bg.jpg);
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 350px;
+  &__title,
+  &__subtitle {
+    color: $white;
+  }
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    color: $white;
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    height: 700px;
+    border-radius: 50px;
+    overflow: hidden;
+    padding: 50px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    transition: all .5s ease-in-out;
+    &:hover {
+      box-shadow: 0 20px 20px rgba(0,0,0,.5);
+    }
+  }
+  &__item-top {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: auto;
+  }
+  &__item-decor {
+    position: absolute;
+    left: -93px;
+    top: 97px;
+    padding-left: 110px;
+    opacity: .4;
     text-transform: uppercase;
-    font-size: 19px;
-    padding: 10px 15px;
+    letter-spacing: 4px;
+    font-weight: 300;
+    transform: rotate(-90deg);
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100px;
+      height: 1px;
+      background-color: #fff;
+      opacity: .4;
+    }
+  }
+  &__item-num {
+    font-size: 30px;
+    margin-left: auto;
+  }
+  &__item-title {
+    font-size: 35px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  &__item-list {
+    column-count: 2;
+  }
+  &__item-text {
+    font-size: 18px;
+    opacity: .8;
+    margin-bottom: 30px;
+  }
+  &__item-list {
+    line-height: 1.5;
+  }
+  &__item-element {
+    position: relative;
+    padding-left: 15px;
+    font-size: 16px;
+    &::before {
+      @extend %circle;
+      width: 7px;
+      height: 7px;
+      box-shadow: 0 0 0 3px rgba(241, 232, 184, 0.377);
+      top: 14px;
+      transform: translateY(-50%);
+      left: 0;
+    }
   }
 }
 
