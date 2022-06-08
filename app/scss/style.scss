@@ -544,6 +544,42 @@
   background-repeat: no-repeat;
   background-size: cover;
   padding-bottom: 350px;
+  margin-bottom: 0;
+  position: relative;
+  overflow: hidden;
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: -395px;
+    z-index: 10;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 500px;
+    width: 2390px;
+    border-radius: 50%;
+    background-color: $white;
+  }
+  &::after {
+    content: "psd";
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 0;
+    padding-bottom: 4px;
+    width: 130px;
+    height: 130px;
+    color: $red-light;
+    font-weight: 700;
+    border-radius: 50%;
+    border: 25px solid $white;
+    background-color: $main;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+  }
   &__title,
   &__subtitle {
     color: $white;
@@ -628,6 +664,158 @@
       top: 14px;
       transform: translateY(-50%);
       left: 0;
+    }
+  }
+}
+
+.price {
+  padding: 0 0 750px 0;
+  background-color: $white;
+  background-image: url(../images/price-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+  margin-bottom: 0;
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: -395px;
+    z-index: 10;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 500px;
+    width: 2390px;
+    border-radius: 50%;
+    background-color: $main;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 0;
+    padding-bottom: 4px;
+    width: 130px;
+    height: 130px;
+    color: $red-light;
+    font-weight: 700;
+    border-radius: 50%;
+    border: 25px solid $main;
+    background-color: $white;
+    background-image: url(../images/shield.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50%;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+  }
+  &__wrapper {
+    max-width: 1300px;
+    padding: 15px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__text {
+    max-width: 580px;
+    width: 100%;
+  }
+  &__subtitle {
+    font-size: 30px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+  &__title {
+    text-align: left;
+  }
+  &__form-box {
+    background-color: rgba(25,25,25,.85);
+    box-shadow: 0 0 5px rgba(25,25,25,.5);
+    padding: 60px 40px;
+    border-radius: 30px;
+    max-width: 430px;
+    width: 100%;
+    margin-left: auto;
+    color: $white;
+  }
+  &__form-title {
+    font-size: 25px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  &__input {
+    display: block;
+    width: 100%;
+    padding: 20px 30px;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    background-color: $white;
+    margin-bottom: 30px;
+  }
+  &__btn {
+    @extend %btn;
+    padding: 20px;
+    width: 100%;
+    margin-bottom: 25px;
+  }
+  &__form-text {
+    font-size: 14px;
+    text-align: center;
+    span {
+      text-decoration: underline;
+    }
+  }
+}
+
+.tab {
+  &__nav-inner {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    justify-content: center;
+  }
+  &__nav {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    transition: all .3s ease-in-out;
+    &.--active-tab {
+      transform: scale(1.2);
+    }
+    & + .tab__nav {
+      margin-left: 20px;
+    }
+  }
+  &__nav-whatsapp {
+    background-color: #36b913;
+  }
+  &__nav-viber {
+    background-color: #7460f3;
+  }
+  &__nav-telegram {
+    background-color: #01a2f3;
+  }
+  &__nav-mail {
+    background-color: #0082fe;
+  }
+  &__content {
+    display: none;
+    &.--active-tab {
+      display: block;
     }
   }
 }
