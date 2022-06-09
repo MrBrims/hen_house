@@ -82,3 +82,19 @@ const tabCheckout = (item, index) => {
 }
 
 tabItems.forEach(tabCheckout)
+
+// Слайдер гарантий
+
+let swiperSecutity = new Swiper(".security__gallery", {
+  slidesPerView: 2,
+  spaceBetween: 30,
+  loop: true,
+  pagination: {
+    el: ".security__gallery-pagination",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".security__gallery-next",
+    prevEl: ".security__gallery-prev",
+  },
+});
