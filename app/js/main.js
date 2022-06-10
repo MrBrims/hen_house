@@ -98,3 +98,63 @@ let swiperSecutity = new Swiper(".security__gallery", {
     prevEl: ".security__gallery-prev",
   },
 });
+
+// Табы с селектом
+
+let selectTab = function () {
+  const tabSelect = document.querySelector('.tab-select__nav');
+  let selectTabHeader = document.querySelectorAll('.tab-select__nav-header');
+  let selectTabNav = document.querySelectorAll('.tab-select__nav-item');
+
+  selectTabHeader.forEach(item => {
+    item.addEventListener('click', selectTabToggle)
+  });
+
+  selectTabNav.forEach(item => {
+    item.addEventListener('click', selectTabChoose)
+  });
+
+  function selectTabToggle() {
+    this.parentElement.classList.toggle('--active-select')
+  }
+
+  function selectTabChoose() {
+    let tabHTML = this.innerHTML,
+      select = this.closest('.tab-select__nav'),
+      currentHTML = select.querySelector('.tab-select__nav-current');
+    currentHTML.innerHTML = tabHTML;
+    select.classList.remove('--active-select');
+  }
+
+  document.addEventListener('mouseup', (e) => {
+    if (!tabSelect.contains(e.target)) tabSelect.classList.remove('--active-select')
+  })
+
+};
+selectTab();
+
+const estimateTabItems = Array.from(document.querySelectorAll('.tab-select__nav-item'))
+const estimateTabContent = Array.from(document.querySelectorAll('.tab-select__content-item'))
+
+const estimateTabClearClass = (element, className = '--active-content') => {
+  element.find(item => item.classList.remove(`${className}`))
+}
+
+const estimateTabSetClass = (element, index, className = '--active-content') => {
+  element[index].classList.add(`${className}`)
+}
+
+const estimateTabCheckout = (item, index) => {
+  item.addEventListener('click', () => {
+
+    if (item.classList.contains('--active-content')) return
+
+    estimateTabClearClass(estimateTabItems)
+    estimateTabClearClass(estimateTabContent)
+
+    estimateTabSetClass(estimateTabItems, index)
+    estimateTabSetClass(estimateTabContent, index)
+  })
+}
+
+estimateTabItems.forEach(estimateTabCheckout)
