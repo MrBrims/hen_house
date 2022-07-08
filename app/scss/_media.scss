@@ -1,0 +1,253 @@
+@media (max-width: 1400px) {
+  .header {
+    margin-bottom: 40px;
+    &__bottom {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 1280px) {
+  .header {
+    &__title {
+      font-size: 50px;
+      span {
+        height: 40px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .header {
+    &__top-location {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .header {
+    &__top-description {
+      font-size: 16px;
+      margin-right: auto;
+    }
+    &__top-contact {
+      margin-right: 40px;
+    }
+    &__top-number {
+      font-size: 20px;
+    }
+    &__menu-btn {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      right: 20px;
+      top: 120px;
+      color: $white;
+      text-transform: uppercase;
+      cursor: pointer;
+      z-index: 200;
+      padding: 10px 15px;
+      background-color: rgba($main, 0.9);
+      box-shadow: 0 0 5px #0f0e0e;
+      border-radius: 5px;
+      transition: all 0.4s ease-in-out;
+      max-width: 100%;
+    }
+    &__middle-wrapper {
+      display: block;
+      margin-top: 90px;
+    }
+    &__middle-text {
+      margin-bottom: 100px;
+    }
+    &__title {
+      font-size: 45px;
+      margin-right: 0;
+    }
+    &__middle-inner {
+      margin-right: 0;
+    }
+    &__middle-bages {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    &__middle-bage + .header__middle-bage {
+      margin-top: 0;
+    }
+    &__middle-bage {
+      box-shadow: 0 0 5px #0f0e0e;
+      &::before {
+        display: none;
+      }
+    }
+  }
+  .menu {
+    position: fixed;
+    background-color: rgba($main, 0.4);
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    overflow: auto;
+    &__items {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: stretch;
+      max-width: fit-content;
+      width: 100%;
+      background: $main;
+      min-height: 100%;
+      padding: 40px 50px;
+      position: absolute;
+      left: -100%;
+      transition: all 0.4s ease-in-out;
+    }
+    &__item + .menu__item {
+      margin-top: 5px;
+    }
+    &__link {
+      display: inline-block;
+    }
+    &.--active {
+      opacity: 1;
+      visibility: visible;
+    }
+    &.--active .menu__items {
+      left: 0;
+    }
+  }
+}
+
+@media (max-width: 860px) {
+  .header {
+    .logo {
+      margin-right: 25px;
+    }
+    &__top-description {
+      display: none;
+    }
+    &__top-contact {
+      margin-right: auto;
+    }
+    &__middle-bages {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .header {
+    &__title {
+      margin-bottom: 40px;
+    }
+    &__middle-text {
+      margin-bottom: 50px;
+    }
+    &__middle-inner {
+      display: block;
+    }
+    &__btn {
+      margin-right: 0;
+      margin-bottom: 30px;
+      max-width: 430px;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    &__top-contact {
+      display: none;
+    }
+    &__top-phone {
+      margin-left: auto;
+    }
+    &__title {
+      font-size: 40px;
+    }
+    &__btn {
+      padding: 20px 40px;
+    }
+  }
+}
+
+@media (max-width: 520px) {
+  .header {
+    &__title span {
+      display: none;
+    }
+  }
+  .menu {
+    &__items {
+      padding: 40px 20px;
+    }
+  }
+}
+
+@media (max-width: 460px) {
+  .header {
+    .logo {
+      max-width: 100px;
+    }
+    &__top-schedule {
+      font-size: 13px;
+      margin-bottom: 5px;
+      &::before {
+        display: none;
+      }
+    }
+    &__top-number {
+      font-size: 18px;
+      font-weight: 400;
+      margin-bottom: 3px;
+    }
+    &__menu-btn {
+      right: 8px;
+      top: 108px;
+    }
+    &__menu-btn.--active {
+      max-width: 55px;
+      overflow: hidden;
+    }
+    &__menu-btn.--active .header__menu-btnlink {
+      opacity: 0;
+      visibility: hidden;
+    }
+    &__menu-btn.--active .header__menu-btnline {
+      margin-left: 0;
+      position: absolute;
+    }
+    &__title {
+      font-size: 30px;
+    }
+    &__middle-bages {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
+
+@media (max-width: 340px) {
+  .header {
+    &__btn {
+      font-size: 16px;
+    }
+    &__btn-text {
+      padding-left: 0;
+    }
+    &__btn-text::before,
+    &__btn-text::after {
+      display: none;
+    }
+  }
+}

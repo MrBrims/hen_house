@@ -1,3 +1,21 @@
+// Меню бургер
+
+const menuBtn = document.querySelector('.header__menu-btn');
+const menuBody = document.querySelector('.menu');
+
+if (menuBtn) {
+  menuBtn.addEventListener("click", function (e) {
+    document.body.classList.toggle('lock');
+    menuBtn.classList.toggle('--active');
+    menuBody.classList.toggle('--active');
+  });
+  menuBody.addEventListener("click", function (e) {
+    document.body.classList.toggle('lock');
+    menuBtn.classList.toggle('--active');
+    menuBody.classList.toggle('--active');
+  });
+}
+
 // Плавная прокрутка
 
 const menuLinks = document.querySelectorAll('.go-to[data-goto]');
@@ -12,6 +30,12 @@ if (menuLinks.length > 0) {
       const gotoBlock = document.querySelector(menuLink.dataset.goto);
       const gotoBlockValue = gotoBlock.getBoundingClientRect().top + scrollY - 0;
 
+      if (menuBtn.classList.contains('--active')) {
+        document.body.classList.remove('lock');
+        menuBtn.classList.remove('--active');
+        menuBody.classList.remove('--active');
+      }
+
       window.scrollTo({
         top: gotoBlockValue,
         behavior: "smooth"
@@ -21,59 +45,60 @@ if (menuLinks.length > 0) {
   }
 }
 
+
 // Квиз
 
-function stepForm() {
-  const stepsQuiz = document.querySelectorAll('.quiz__item')
-  const prevBtnQuiz = document.querySelector('.quiz__btn-prev')
-  const nextBtnQuiz = document.querySelector('.quiz__btn-next')
-  const submitBtnQuiz = document.querySelector('.quiz__btn-submit')
-  const stepNumbersQuiz = document.querySelectorAll('.quiz__step')
-  const progressQuiz = document.querySelector('.quiz__success')
+// function stepForm() {
+//   const stepsQuiz = document.querySelectorAll('.quiz__item')
+//   const prevBtnQuiz = document.querySelector('.quiz__btn-prev')
+//   const nextBtnQuiz = document.querySelector('.quiz__btn-next')
+//   const submitBtnQuiz = document.querySelector('.quiz__btn-submit')
+//   const stepNumbersQuiz = document.querySelectorAll('.quiz__step')
+//   const progressQuiz = document.querySelector('.quiz__success')
 
-  let formStepIndex = 0
+//   let formStepIndex = 0
 
-  prevBtnQuiz.addEventListener('click', () => {
-    formStepIndex--
-    stepNumbersQuiz[formStepIndex + 1].classList.remove('--active-step')
-    updateFormSteps()
-  })
+//   prevBtnQuiz.addEventListener('click', () => {
+//     formStepIndex--
+//     stepNumbersQuiz[formStepIndex + 1].classList.remove('--active-step')
+//     updateFormSteps()
+//   })
 
-  nextBtnQuiz.addEventListener('click', () => {
-    formStepIndex++
-    updateFormSteps()
-  })
+//   nextBtnQuiz.addEventListener('click', () => {
+//     formStepIndex++
+//     updateFormSteps()
+//   })
 
-  function updateFormSteps() {
-    stepsQuiz.forEach((step) => {
-      step.classList.contains('--active') && step.classList.remove('--active')
-    })
+//   function updateFormSteps() {
+//     stepsQuiz.forEach((step) => {
+//       step.classList.contains('--active') && step.classList.remove('--active')
+//     })
 
-    stepsQuiz[formStepIndex].classList.add('--active')
-    stepNumbersQuiz[formStepIndex].classList.add('--active-step')
+//     stepsQuiz[formStepIndex].classList.add('--active')
+//     stepNumbersQuiz[formStepIndex].classList.add('--active-step')
 
-    if (formStepIndex === 0) {
-      prevBtnQuiz.style.display = 'none'
-    } else {
-      prevBtnQuiz.style.display = 'inline-block'
-    }
+//     if (formStepIndex === 0) {
+//       prevBtnQuiz.style.display = 'none'
+//     } else {
+//       prevBtnQuiz.style.display = 'inline-block'
+//     }
 
-    if (formStepIndex === stepsQuiz.length - 1) {
-      nextBtnQuiz.style.display = 'none'
-      submitBtnQuiz.style.display = 'inline-block'
-    } else {
-      submitBtnQuiz.style.display = 'none'
-      nextBtnQuiz.style.display = 'inline-block'
-    }
+//     if (formStepIndex === stepsQuiz.length - 1) {
+//       nextBtnQuiz.style.display = 'none'
+//       submitBtnQuiz.style.display = 'inline-block'
+//     } else {
+//       submitBtnQuiz.style.display = 'none'
+//       nextBtnQuiz.style.display = 'inline-block'
+//     }
 
-    const activeStep = document.querySelectorAll('.--active-step')
-    const percentSucces = ((activeStep.length - 1) / (stepNumbersQuiz.length - 1)) * 100 + '%'
+//     const activeStep = document.querySelectorAll('.--active-step')
+//     const percentSucces = ((activeStep.length - 1) / (stepNumbersQuiz.length - 1)) * 100 + '%'
 
-    progressQuiz.style.width = percentSucces
-  }
-  updateFormSteps()
-}
-stepForm();
+//     progressQuiz.style.width = percentSucces
+//   }
+//   updateFormSteps()
+// }
+// stepForm();
 
 
 // Табы
