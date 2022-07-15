@@ -28,13 +28,7 @@ if (menuLinks.length > 0) {
     const menuLink = e.target;
     if (menuLink.dataset.goto && document.querySelector(menuLink.dataset.goto)) {
       const gotoBlock = document.querySelector(menuLink.dataset.goto);
-      const gotoBlockValue = gotoBlock.getBoundingClientRect().top + scrollY - 0;
-
-      if (menuBtn.classList.contains('--active')) {
-        document.body.classList.remove('lock');
-        menuBtn.classList.remove('--active');
-        menuBody.classList.remove('--active');
-      }
+      const gotoBlockValue = gotoBlock.getBoundingClientRect().top + scrollY - 30;
 
       window.scrollTo({
         top: gotoBlockValue,
@@ -48,57 +42,57 @@ if (menuLinks.length > 0) {
 
 // Квиз
 
-// function stepForm() {
-//   const stepsQuiz = document.querySelectorAll('.quiz__item')
-//   const prevBtnQuiz = document.querySelector('.quiz__btn-prev')
-//   const nextBtnQuiz = document.querySelector('.quiz__btn-next')
-//   const submitBtnQuiz = document.querySelector('.quiz__btn-submit')
-//   const stepNumbersQuiz = document.querySelectorAll('.quiz__step')
-//   const progressQuiz = document.querySelector('.quiz__success')
+function stepForm() {
+  const stepsQuiz = document.querySelectorAll('.quiz__item')
+  const prevBtnQuiz = document.querySelector('.quiz__btn-prev')
+  const nextBtnQuiz = document.querySelector('.quiz__btn-next')
+  const submitBtnQuiz = document.querySelector('.quiz__btn-submit')
+  const stepNumbersQuiz = document.querySelectorAll('.quiz__step')
+  const progressQuiz = document.querySelector('.quiz__success')
 
-//   let formStepIndex = 0
+  let formStepIndex = 0
 
-//   prevBtnQuiz.addEventListener('click', () => {
-//     formStepIndex--
-//     stepNumbersQuiz[formStepIndex + 1].classList.remove('--active-step')
-//     updateFormSteps()
-//   })
+  prevBtnQuiz.addEventListener('click', () => {
+    formStepIndex--
+    stepNumbersQuiz[formStepIndex + 1].classList.remove('--active-step')
+    updateFormSteps()
+  })
 
-//   nextBtnQuiz.addEventListener('click', () => {
-//     formStepIndex++
-//     updateFormSteps()
-//   })
+  nextBtnQuiz.addEventListener('click', () => {
+    formStepIndex++
+    updateFormSteps()
+  })
 
-//   function updateFormSteps() {
-//     stepsQuiz.forEach((step) => {
-//       step.classList.contains('--active') && step.classList.remove('--active')
-//     })
+  function updateFormSteps() {
+    stepsQuiz.forEach((step) => {
+      step.classList.contains('--active') && step.classList.remove('--active')
+    })
 
-//     stepsQuiz[formStepIndex].classList.add('--active')
-//     stepNumbersQuiz[formStepIndex].classList.add('--active-step')
+    stepsQuiz[formStepIndex].classList.add('--active')
+    stepNumbersQuiz[formStepIndex].classList.add('--active-step')
 
-//     if (formStepIndex === 0) {
-//       prevBtnQuiz.style.display = 'none'
-//     } else {
-//       prevBtnQuiz.style.display = 'inline-block'
-//     }
+    if (formStepIndex === 0) {
+      prevBtnQuiz.style.display = 'none'
+    } else {
+      prevBtnQuiz.style.display = 'inline-block'
+    }
 
-//     if (formStepIndex === stepsQuiz.length - 1) {
-//       nextBtnQuiz.style.display = 'none'
-//       submitBtnQuiz.style.display = 'inline-block'
-//     } else {
-//       submitBtnQuiz.style.display = 'none'
-//       nextBtnQuiz.style.display = 'inline-block'
-//     }
+    if (formStepIndex === stepsQuiz.length - 1) {
+      nextBtnQuiz.style.display = 'none'
+      submitBtnQuiz.style.display = 'inline-block'
+    } else {
+      submitBtnQuiz.style.display = 'none'
+      nextBtnQuiz.style.display = 'inline-block'
+    }
 
-//     const activeStep = document.querySelectorAll('.--active-step')
-//     const percentSucces = ((activeStep.length - 1) / (stepNumbersQuiz.length - 1)) * 100 + '%'
+    const activeStep = document.querySelectorAll('.--active-step')
+    const percentSucces = ((activeStep.length - 1) / (stepNumbersQuiz.length - 1)) * 100 + '%'
 
-//     progressQuiz.style.width = percentSucces
-//   }
-//   updateFormSteps()
-// }
-// stepForm();
+    progressQuiz.style.width = percentSucces
+  }
+  updateFormSteps()
+}
+stepForm();
 
 
 // Табы
@@ -132,8 +126,8 @@ tabItems.forEach(tabCheckout)
 // Слайдер гарантий
 
 let swiperSecutity = new Swiper(".security__gallery", {
-  slidesPerView: 2,
-  spaceBetween: 30,
+  slidesPerView: 1,
+  spaceBetween: 10,
   loop: true,
   pagination: {
     el: ".security__gallery-pagination",
@@ -143,12 +137,22 @@ let swiperSecutity = new Swiper(".security__gallery", {
     nextEl: ".security__gallery-next",
     prevEl: ".security__gallery-prev",
   },
+  breakpoints: {
+    520: {
+      slidesPerView: 2,
+      spaceBetween: 10,
+    },
+    1000: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+  },
 });
 
 // Слайдер материалов
 
 let swiperMaterials = new Swiper(".materials__slider", {
-  slidesPerView: 3,
+  slidesPerView: 2,
   spaceBetween: 30,
   loop: true,
   pagination: {
@@ -159,13 +163,19 @@ let swiperMaterials = new Swiper(".materials__slider", {
     nextEl: ".materials__btn-next",
     prevEl: ".materials__btn-prev",
   },
+  breakpoints: {
+    460: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
+  },
 });
 
 // Слайдер Отзывов
 
 let swiperReviews = new Swiper(".reviews__slider", {
-  slidesPerView: 3,
-  spaceBetween: 30,
+  slidesPerView: 1,
+  spaceBetween: 10,
   loop: true,
   pagination: {
     el: ".reviews__slides-nav",
@@ -174,6 +184,16 @@ let swiperReviews = new Swiper(".reviews__slider", {
   navigation: {
     nextEl: ".reviews__btn-next",
     prevEl: ".reviews__btn-prev",
+  },
+  breakpoints: {
+    800: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    1280: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
   },
 });
 
@@ -357,3 +377,18 @@ document.addEventListener('keydown', function (e) {
       Element.prototype.msMatchesSelector;
   }
 })();
+
+// Анимация
+
+let wow = new WOW(
+  {
+    boxClass: 'wow', 
+    animateClass: 'animate__animated', 
+    offset: 0,  
+    mobile: true,
+    live: true,
+    scrollContainer: null,
+    resetAnimation: true,
+  }
+);
+wow.init();
